@@ -1,4 +1,4 @@
-package com.cos.enstargram;
+package com.choco.enstargram;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

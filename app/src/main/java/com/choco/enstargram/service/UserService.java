@@ -30,29 +30,29 @@ public class UserService {
 	private final BCryptPasswordEncoder passwordEncoder;
 	@Value("${file.img.profile_dir}")
 	private String profileImgDir;
-	
-	@Transactional(readOnly=true)
+
+	@Transactional(readOnly = true)
 	public UserProfileDto getProfile(Long pageUserId, Long principalId) {
 		UserProfileDto userProfileDto = new UserProfileDto();
-		
+
 		User user = userRepo.findById(pageUserId).orElseThrow(() -> {
 			throw new CustomException("profile: user id not found");
 		});
-		
+
 		userProfileDto.setUser(user);
 		userProfileDto.setPageOwnerSame(pageUserId == principalId);
 		userProfileDto.setNumPosts(user.getPosts().size());
-		
+
 		int subscribeState = subscribeRepo.subscribeState(principalId, pageUserId);
 		int numSubscribing = subscribeRepo.numSubscribing(pageUserId);
-		
+
 		userProfileDto.setSubscribeState(subscribeState == 1);
 		userProfileDto.setNumSubscribing(numSubscribing);
-		
-		user.getPosts().forEach((post)->{
+
+		user.getPosts().forEach((post) -> {
 			post.setNumLikes(post.getLikes().size());
 		});
-		
+
 		return userProfileDto;
 	}
 
@@ -63,36 +63,39 @@ public class UserService {
 		});
 
 		String rawPw = user.getPassword();
-		String encPw = passwordEncoder.encode(rawPw);
-
+		if ((rawPw == null) || (rawPw.length() == 0)) {
+			// do nothing
+		} else {
+			String encPw = passwordEncoder.encode(rawPw);
+			userEntity.setPassword(encPw);
+		}
 		userEntity.setName(user.getName());
-		userEntity.setPassword(encPw);
 		userEntity.setBio(user.getBio());
 		userEntity.setWebsite(user.getWebsite());
 		userEntity.setPhone(user.getPhone());
 		userEntity.setGender(user.getGender());
 		return userEntity;
 	}
-	
+
 	@Transactional
 	public User updateProfileImgUrl(Long principalId, MultipartFile profileImgFile) {
 		UUID uuid = UUID.randomUUID();
 		String imgFileName = uuid + "_" + profileImgFile.getOriginalFilename();
 		System.out.println("img file name:" + imgFileName);
 		Path imgFilePath = Paths.get(profileImgDir + imgFileName);
-		
+
 		try {
 			Files.write(imgFilePath, profileImgFile.getBytes());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		User user = userRepo.findById(principalId).orElseThrow(()->{
+
+		User user = userRepo.findById(principalId).orElseThrow(() -> {
 			throw new CustomApiException("cannot find user");
 		});
-		
+
 		user.setProfileImgUrl(imgFileName);
-		
+
 		return user;
 	} // update by dirty check
 

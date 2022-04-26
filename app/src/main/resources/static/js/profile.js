@@ -47,7 +47,7 @@ function openSubscribingModal(pageUserId) {
 function getSubscribeModalItem(user) {
 	let item = `<div class="subscribe__item" id="subscribeModalItem-${user.userId}">`;
 	item += `<div class="subscribe__img">`;
-	item += `<img src="/upload/${user.profileImgUrl}" alt=""  onerror="this.src='/images/person.jpeg'"/>`;
+	item += `<img src="/img/profile/${user.profileImgUrl}" alt=""  onerror="this.src='/images/person.jpeg'"/>`;
 	item += `</div>`;
 	item += `<div class="subscribe__text">`;
 	item += `<h2>${user.username}</h2>`;

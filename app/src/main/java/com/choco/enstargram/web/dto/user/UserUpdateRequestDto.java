@@ -15,7 +15,6 @@ public class UserUpdateRequestDto {
 	@Size(min=3, max=10, message="invalid name size")
 	@Pattern(regexp="^[a-zA-Z]\\S*$", message="invalid name regex")
 	private String name;
-	@NotBlank(message="password should not be blank")
 	private String password;
 	private String website;
 	private String bio;

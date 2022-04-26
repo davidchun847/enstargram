@@ -33,7 +33,7 @@ public class User {
 	
 	@Column(length=100, unique=true)
 	private String username;
-	@Column(nullable=false)
+	@Column(length=100, nullable=false)
 	private String password;
 	@Column(length=20, nullable=false)
 	private String email;

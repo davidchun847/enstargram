@@ -40,7 +40,7 @@
 				<div class="content-item__04">
 					<div class="item__title">Password</div>
 					<div class="item__input">
-						<input type="password" name="password" placeholder="Password" required="required" />
+						<input type="password" name="password" placeholder="Password" />
 					</div>
 				</div>
 				<div class="content-item__05">
