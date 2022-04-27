@@ -1,0 +1,53 @@
+server:
+  port: <YOUR_PORT>
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:<YOUR_MARIADB_PORT>/enstargram?serverTimezone=Asia/Seoul
+    username: <YOUR_MARIADB_USERNAME>
+    password: <YOUR_MARIADB_PASSWORD>
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+
+  security:
+    user:
+      name: test
+      password: 1234
+
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: <YOUR_FACEBOOK_CLIENT_ID>
+            client-secret: <YOUR_FACEBOOK_CLIENT_SECRET>
+            scope:
+              - public_profile
+              - email
+
+file:
+  img:
+    base_dir: <YOUR_DATA_DIR>/img/
+    post_dir: <YOUR_DATA_DIR>/img/post/
+    profile_dir: <YOUR_DATA_DIR>/img/profile/
