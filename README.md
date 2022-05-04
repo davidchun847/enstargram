@@ -1,7 +1,7 @@
-## Enstargram (Instagram clone coding)
+## Enstargram
 
 # Feature
-This project is the clone code of Instagram (Meta), a SNS app for posting images and social networking. <br/>
+This project is the a SNS app similar to [Instagram](https://www.instagram.com/) (Meta) for posting images and social networking. <br/>
 
 # Development:
 - Tools: Java, Spring Boot, JPA, JavaScript, MariaDB <br/>
@@ -12,9 +12,9 @@ This project is the clone code of Instagram (Meta), a SNS app for posting images
 - sign up/in, profile modification, posting, subscribing, likes, leaving comment <br/>
 
 # Implementation features:
-- Oauth (facebook), B-crypt password encoding <br/>
 - data validataion check, JPA and native query <br/>
-- validation advice <br/>
+- Oauth (facebook), B-crypt password encoding <br/>
+- validation advice wrapping <br/>
 
 # How to run this:
 1. Rename `app/src/main/resources/application_MODIFY_ME.yml` to `application.yml` <br/>
@@ -22,6 +22,6 @@ This project is the clone code of Instagram (Meta), a SNS app for posting images
 3. Open `app` folder as workspace and run as spring boot <br/>
 
 # Reference
-[1]: Base code, Choi2021<https://github.com/codingspecialist/EaszUp-Springboot-Photogram-Start> <br/>
-[2]: Photos <https://unsplash.com> <br/>
-[3]: Icons <https://www.flaticon.com> <br/>
+[1]: (Base code) <https://github.com/codingspecialist/EaszUp-Springboot-Photogram-Start> <br/>
+[2]: (Photos) <https://unsplash.com> <br/>
+[3]: (Icons) <https://www.flaticon.com> <br/>
