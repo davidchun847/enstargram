@@ -9,7 +9,9 @@ This project is the a SNS app similar to [Instagram](https://www.instagram.com/)
 - Team size: 1 (David Chun) <br/>
 
 # This app includes functions:
-- sign up/in, profile modification, posting, subscribing, likes, leaving comment <br/>
+- sign up/in, profile modification <br/>
+- posting, recent posts view, popular posts view <br/>
+- subscribing, likes, leaving comment <br/>
 
 # Implementation features:
 - data validataion check, JPA and native query <br/>
